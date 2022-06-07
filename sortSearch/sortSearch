@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+func sortSearch(n int, arr []int, target int) int { //sorted
+	var count int = 0 // add this count and print n main you can compare and experiment with DS of diff size
+	for i := 0; i < n; i++ {
+		count++ // you need to increase first before you return
+		if arr[i] == target {
+			return i, count
+		} else if arr[i] > target {
+			return -1, count
+		}
+	}
+	return -1, count
+}
+func main() {
+	const size int = 5
+	arr := []int{5, 8, 10, 20, 30}
+	var target int = 20
+	result, count := sortSearch(size, arr, target)
+
+	if result == -1 {
+		fmt.Printf("Target %+v is not found", target)
+
+	} else {
+		fmt.Printf("Target %+v is found at position %+v", target, result+1)
+		fmt.Printf(count, "number of comparisons done.")
+	}
+}
